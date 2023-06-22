@@ -1,4 +1,7 @@
 <?php
-setcookie('user', $user['name'], time() - 3600, "/");
-header('Location: /');
+session_start();
+session_unset();
+session_destroy();
+header("Location: /");
+exit();
 ?>

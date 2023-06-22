@@ -1,8 +1,8 @@
 <?php
 
-$login = filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING);
-$name = filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING);
-$pass = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
+$login = trim($_POST['login']);
+$name = trim($_POST['name']);
+$pass = trim($_POST['pass']);
 
 if(mb_strlen($login) < 5 || mb_strlen($login) > 12) {
     echo "Недопустимая длина логина";

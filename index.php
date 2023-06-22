@@ -37,6 +37,7 @@
                               placeholder="Введите логин"></label><br>
                 <label><input type="password" class="form-control" name="pass" id="pass"
                               placeholder="Введите пароль"></label><br>
+
                 <button class="btn btn-success" type="submit">Войти</button>
             </form>
         </div>
@@ -44,75 +45,59 @@
             <div class="search">
                 <h1>Поиск</h1>
                 <form action="search/search.php" method="post">
-                    <label><input type="text" class="form-control" name="search" id="search" placeholder="Имя/название"></label><br>
-
-                    <label for="type">Тип поиска:</label>
-                    <select class="form-control" name="type" id="type">
-                        <option value="notes">Заметки</option>
-                        <option value="tasks">Задачи</option>
-                        <option value="events">События</option>
-                    </select><br>
-
+                    <label><input type="text" class="form-control" name="search" id="search" placeholder="Название"></label><br>
                     <button class="btn btn-success" type="submit">Отправить</button>
                 </form>
             </div>
             <div class="container mt-4">
                 <div class="row">
                     <div class="col">
-                        <h1>Добавить заметку</h1>
-                        <form action="send/send_notes.php" method="post">
-                            <label><input type="text" class="form-control" name="title" id="title"
-                                          placeholder="Название"></label><br>
-                            <label><input type="text" class="form-control" name="description" id="description"
-                                          placeholder="Введите описание"></label><br>
-                            <label  for="date-input" class="form-label">Дата создания</label>
-                            <input type="date" class="form-control" name="created_at" id="created_at">
-                            <button class="btn btn-success" type="submit">Отправить</button>
-                        </form>
-                    </div>
-                    <div class="col">
-                        <h1>Добавить задачу</h1>
-                        <form action="send/send_tasks.php" method="post">
-                            <label><input type="text" class="form-control" name="title" id="title"
-                                          placeholder="Название"></label><br>
-                            <label><input type="text" class="form-control" name="description" id="description"
-                                          placeholder="Введите описание"></label><br>
-                            <label for="time-input" class="form-label">Время начала</label>
-                            <input type="time" class="form-control" name="start_time" id="start_time">
-                            <label for="time-input" class="form-label">Время конца</label>
-                            <input type="time" class="form-control" name="end_time" id="end_time">
-                            <label for="priority-select" class="form-label">Приоритет</label>
-                            <select class="form-select" name="priority" id="priority">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <button class="btn btn-success" type="submit">Отправить</button>
-                        </form>
-                    </div>
-                    <div class="col">
-                        <h1>Добавить событие</h1>
-                        <form action="send/send_events.php" method="post">
-                            <label><input type="text" class="form-control" name="title" id="title"
-                                          placeholder="Название"></label><br>
-                            <label><input type="text" class="form-control" name="description" id="description"
-                                          placeholder="Введите описание"></label><br>
-                            <label><input type="text" class="form-control" name="location" id="location"
-                                          placeholder="Место"></label><br>
-                            <label  for="date-input" class="form-label">Дата события</label>
-                            <input type="date" name="start_date" class="form-control" id="start_date">
-                            <label for="time-input" class="form-label">Время начала</label>
-                            <input type="time" class="form-control" name="start_time" id="start_time">
-                            <label for="time-input" class="form-label">Время конца</label>
-                            <input type="time" name="end_time" class="form-control" id="end_time">
-                            <button class="btn btn-success" type="submit">Отправить</button>
-                        </form>
-                    </div>
-                    <div class="col">
-                        <p>Салют, <?=$_COOKIE['user']?></a></p>
-                        <p>Привет <?=$_COOKIE['user']?>. Чтобы выйти нажмите <a href="exit.php">здесь<<</a></p>
+                        <h1>Добавить товар</h1>
+                        <form action="create/goods.php" method="post">
+                            <label><input type="text" class="form-name" name="name" id="name"
+                                          placeholder="	Название товара"></label><br>
+                            <label><input type="text" class="form-international" name="international" id="international"
+                                          placeholder="Международное название лекарства"></label><br>
+                            <br><p>Дата производства</p>
+                            <label><input type="date" class="form-begin" name="creation_date" id="creation_date"></label><br>
+                            <br><p>Годен до</p>
+                            <label><input type="date" class="form-end" name="end" id="end"></label><br>
+                            <label><input type="checkbox" class="form-bull" name="bull" id="bull"
+                                          placeholder="Одобрено Минздравом РФ"></label><br>
+                            <label><input type="text" class="form-rf" name="rf" id="rf"
+                                          placeholder="Регистрационный номер Минздрава РФ"></label><br>
+                            <label><input type="text" class="form-producer" name="producer" id="producer"
+                                          placeholder="Данные о производителе"></label><br>
+                            <label><input type="textarea" class="form-instructions" name="instructions" id="instructions"
+                                          placeholder="Инструкция к лекарству"></label><br>
+                            <label><input type="text" class="form-address" name="address" id="address"
+                                          placeholder="Адрес поставщика"></label><br>
+                            <label><input type="text" class="form-phone" name="phone" id="phone"
+                                          placeholder="Телефон поставщика"></label><br>
+                            <br><p>	Дата поступления на склад</p>
+                            <label><input type="date" class="form-dace" name="dace" id="dace"></label><br>
+                            <label><input type="text" class="form-price" name="price" id="price"
+                                          placeholder="	Цена товара"></label><br>
 
-                        <a href="/exit.php"><button  type="button" class="btn btn-secondary"> Выход </button></a>
+                            <button class="btn btn-success" type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <h1>Создать заказ</h1>
+                        <form action="create/order.php" method="post">
+                            <label><input type="text" class="form-name" name="name" id="name"
+                                          placeholder="Название товара"></label><br>
+                            <label><input type="text" class="form-price" name="price" id="price"
+                                          placeholder="Цена товара"></label><br>
+                            <label><input type="text" class="form-goods_invoice" name="goods_invoice" id="goods_invoice"
+                                          placeholder="Номер приходной накладной ведомости"></label><br>
+                            <label><input type="text" class="form-company" name="company" id="company"
+                                          placeholder="Название покупателя"></label><br>
+                            <button class="btn btn-success" type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <p>Нажмите чтобы <a href="exit.php">выйти</a></p>
                     </div>
                 </div>
                 <br>
