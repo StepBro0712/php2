@@ -1,7 +1,7 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
-header("Location: /");
-exit();
+// Удаляем куки пользователя
+setcookie('user', '', time() - 3600, "/");
+
+// Перенаправляем пользователя на главную страницу
+header('Location: /');
 ?>

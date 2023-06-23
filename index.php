@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>apteka</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel='stylesheet' type="text/css" href='css/style.css'>
+    <link href="css/style.css" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
 <div class="apteka mt-4">
@@ -95,6 +93,43 @@
                                           placeholder="Название покупателя"></label><br>
                             <button class="btn btn-success" type="submit">Отправить</button>
                         </form>
+                    </div>
+                    <div class="col">
+                        <h1>Список товаров</h1>
+                        <?php
+                        require_once 'create/connect.php';
+                        $itemsResult = mysqli_query($connect, "SELECT * FROM `items`");
+                        ?>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Название</th>
+                                <th>Международное название</th>
+                                <th>Дата производства</th>
+                                <th>Годен до</th>
+                                <th>Цена</th>
+                                <th>Количество</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php while ($item = mysqli_fetch_assoc($itemsResult)) { ?>
+                                <tr>
+                                    <td><?= $item['name'] ?></td>
+                                    <td><?= $item['international'] ?></td>
+                                    <td><?= $item['creation_date'] ?></td>
+                                    <td><?= $item['end'] ?></td>
+                                    <td><?= $item['price'] ?></td>
+                                    <td><?= $item['quantity'] ?></td>
+                                    <td>
+                                        <form action="delete/item.php" method="post">
+                                            <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="col">
                         <p>Нажмите чтобы <a href="exit.php">выйти</a></p>
